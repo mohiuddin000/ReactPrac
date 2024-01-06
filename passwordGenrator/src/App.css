@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  background-color: rgb(241, 240, 240);
+  width: 50vw;
+  height: 30%;
+  margin-left: 25vw;
+  text-align: center;
+  padding: 50px 15px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  font-size: 4vw;
+}
+.password {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+#pass {
+  border-radius: 20px;
+  width: 20vw;
+  padding: 5px 20px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.copy {
+  background-color: rgb(88, 88, 221);
+  color: white;
+  font-weight: 600;
+}
+.copy:hover {
+  background-color: rgb(112, 112, 202);
+}
+
+.lowerbody {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.slider {
+  display: flex;
+  gap: 5px;
+}
+
+.number {
+  display: flex;
+  gap: 5px;
+}
+
+.char {
+  display: flex;
+  gap: 5px;
+}

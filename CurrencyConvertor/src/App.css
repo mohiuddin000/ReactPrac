@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.backgroungImg {
+  background-image: url(winter.jpg);
+}
