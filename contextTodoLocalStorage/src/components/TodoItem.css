@@ -1,0 +1,18 @@
+.buttons {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  right: 0;
+  padding-right: 30px;
+  padding-top: 6px;
+}
+.main {
+  position: relative;
+}
+
+.timeclass {
+  font-weight: 600;
+  color: grey;
+
+  font-size: 10px;
+}
