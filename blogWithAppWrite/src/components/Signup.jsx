@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import { Button, Input, Logo } from "./index";
 import { useDispatch } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authService from "../Appwrite/auth";
-import { login } from "../Store/AuthSlice";
+
 import { useForm } from "react-hook-form";
+import { login } from "../Store/AuthSlice";
 
 function Signup() {
-    const navigate = Navigate();
-    const [error, setError] = useState();
+    const navigate = useNavigate();
+    const [error, setError] = useState("");
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();
 
+    const consoleh = () => {
+        console.log("Create account");
+    };
+
     const create = async (data) => {
+        console.log("im create function");
         setError("");
         try {
             const userData = await authService.createAccount(data);
@@ -49,10 +55,14 @@ function Signup() {
                     <p className="text-red-600 mt-8 text-center">{error}</p>
                 )}
 
-                <form onSubmit={handleSubmit(create)}>
-                    <div className="space-y-5">
+                <form
+                    onSubmit={handleSubmit(create)}
+                    className="flex flex-col items-center justify-items-center pt-4 w-full"
+                >
+                    <div className="space-y-5  ">
                         <Input
-                            label="Full Name"
+                            label="Name"
+                            className="ml-2"
                             placeholder="Enter your name"
                             {...register("name", {
                                 required: true,
@@ -64,13 +74,13 @@ function Signup() {
                             type="email"
                             {...register("email", {
                                 required: true,
-                                validate: {
-                                    matchPatern: (value) =>
-                                        /@"^[^\s@]+@[^\s@]+\.[^\s@]+$"/.test(
-                                            value
-                                        ) ||
-                                        "Email address must be a valid address",
-                                },
+                                // validate: {
+                                //     matchPatern: (value) =>
+                                //         /@"^[^\s@]+@[^\s@]+\.[^\s@]+$"/.test(
+                                //             value
+                                //         ) ||
+                                //         "Email address must be a valid address",
+                                // },
                             })}
                         />
 
@@ -78,12 +88,17 @@ function Signup() {
                             label="Password"
                             placeholder="Enter the password"
                             type="password"
+                            className=""
                             {...register("password", {
-                                required: ture,
+                                required: true,
                             })}
                         />
 
-                        <Button type="submit" className="w-full">
+                        <Button
+                            type="submit"
+                            className=" w-full"
+                            onClick={consoleh}
+                        >
                             Create Account
                         </Button>
                     </div>
